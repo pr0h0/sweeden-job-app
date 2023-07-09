@@ -1,0 +1,58 @@
+:root {
+  --primary-color-light: #08f;
+  --primary-color-dark: #024;
+  --secondary-color-light: #dff2d8;
+  --secondary-color-dark: #ffb26a;
+  --text-color-light: #000000;
+  --text-color-dark: #ffffff;
+  --border-color-light: #efefef;
+  --border-color-dark: #8d8d8d;
+  --border-radius: 4px;
+  --box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --box-shadow-dark: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --transition-duration: 0.2s;
+  --transition-timing-function: ease-in-out;
+  --transition-delay: 0s;
+  --transition: all var(--transition-duration) var(--transition-timing-function)
+    var(--transition-delay);
+  --font-size: 16px;
+  --font-family: "Courier New", Courier, monospace;
+  --font-weight: 400;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  transition: var(--transition);
+}
+
+body:has(#theme:not(:checked)) {
+  --primary-color: var(--primary-color-light);
+  --secondary-color: var(--secondary-color-light);
+  --text-color: var(--text-color-light);
+  --border-color: var(--border-color-light);
+  --box-shadow: var(--box-shadow-light);
+}
+
+body:has(#theme:checked) {
+  --primary-color: var(--primary-color-dark);
+  --secondary-color: var(--secondary-color-dark);
+  --text-color: var(--text-color-dark);
+  --border-color: var(--border-color-dark);
+  --box-shadow: var(--box-shadow-dark);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
