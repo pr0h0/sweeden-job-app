@@ -12,14 +12,15 @@ function App() {
 
   const fetchProduct = async () => {
     setLoading(true);
-    // comment this line and uncomment the next one to use the mock data
-    const response = await ProductService.getProduct("9780194229647");
+    // uncomment this line and comment the next one to use real data
+    // right now there is problem with CORS on api endpoint
+    // const response = await ProductService.getProduct("9780194229647");
 
     // Mock data
-    // const response = await ProductService.getMockProduct("9780194229647");
+    const response = await ProductService.getMockProduct("9780194229647");
 
     if (!response.error) {
-      setProduct(response.data?.product || null);
+      setProduct(response?.data?.product || null);
     } else {
       setError(response.message);
     }

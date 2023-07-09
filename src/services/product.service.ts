@@ -1,5 +1,5 @@
 import MockProducts from "../data/mockProducts";
-import { Product, ProductResponse } from "../types/Product";
+import { ProductResponse } from "../types/Product";
 import HelperService from "./helper.service";
 import HttpService from "./http.service";
 
@@ -7,10 +7,10 @@ class ProductService extends HttpService {
   static products = MockProducts;
 
   static async getMockProduct(id: string) {
-    const data = await new Promise<Product | undefined>((resolve) => {
+    const data = await new Promise<ProductResponse | undefined>((resolve) => {
       const data = ProductService.products.find(
         (p) => p.product.barcode === id
-      )?.product;
+      );
       resolve(data);
     });
 
