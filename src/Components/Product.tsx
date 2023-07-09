@@ -16,7 +16,6 @@ interface Props extends Record<string, any> {
 const ignoreKeys = ["in", "level"];
 
 const Product = (props: Props) => {
-  console.log({ props });
   const [open, setOpen] = useState<Record<string, boolean>>({});
 
   const handleClick = (key: string) => {

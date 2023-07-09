@@ -12,12 +12,14 @@ function App() {
 
   const fetchProduct = async () => {
     setLoading(true);
-    // const response = await ProductService.getProduct('9780194229647');
+    // comment this line and uncomment the next one to use the mock data
+    const response = await ProductService.getProduct("9780194229647");
 
-    const response = await ProductService.getMockProduct("9780194229647");
+    // Mock data
+    // const response = await ProductService.getMockProduct("9780194229647");
 
     if (!response.error) {
-      setProduct(response.data);
+      setProduct(response.data?.product || null);
     } else {
       setError(response.message);
     }
